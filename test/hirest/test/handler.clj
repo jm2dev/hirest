@@ -11,4 +11,10 @@
 
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
-      (is (= (:status response) 404)))))
+      (is (= (:status response) 404))))
+
+  (testing "serving cat image"
+    (let [response (app (request :get "/cat"))]
+      (is (= (:status response) 200))
+      ))
+  )
